@@ -95,6 +95,7 @@ If array of JSON object is input, returns as is
 ```
 
 ## Example 4
+Flattens address and creates new entry for each price history
 
 #### Input
 ```javascript
@@ -139,6 +140,53 @@ If array of JSON object is input, returns as is
     address_unit:     10,
     address_zipcode:  95122,
     address_price_history: 30
+  }
+]
+```
+
+## Example 5
+Flattens address and creates new entry for each tenant object
+
+#### Input
+```javascript
+{
+  name:             "something",
+  phone:            "is",
+  address: {
+    street:   "San Mateo",
+    unit:     10,
+    zipcode:  95122,
+    tenant: [{
+      first_name:   "Joseph",
+      last_name:    "Crane"
+    },{
+      first_name:   "Abel",
+      last_name:    "Picchu"    
+    }]
+  }
+}
+```
+
+#### Output
+```javascript
+[
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Joseph",
+    address_tenant_last_name:   "Crane"
+  },
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Abel",
+    address_tenant_last_name:   "Picchu"
   }
 ]
 ```
