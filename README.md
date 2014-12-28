@@ -190,3 +190,75 @@ Flattens address and creates new entry for each tenant object
   }
 ]
 ```
+
+## Example 6
+When there is more than one array compute all possible permutations
+
+#### Input
+```javascript
+{
+  name:             "something",
+  phone:            "is",
+  address: {
+    street:   "San Mateo",
+    unit:     10,
+    zipcode:  95122,
+    tenant: [{
+      first_name:   "Joseph",
+      last_name:    "Crane"
+    },{
+      first_name:   "Abel",
+      last_name:    "Picchu"    
+    }]
+  },
+  price_points: [100, 200]  
+}
+```
+
+#### Output
+```javascript
+[
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Joseph",
+    address_tenant_last_name:   "Crane",
+    price_points:               100
+  },
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Abel",
+    address_tenant_last_name:   "Picchu",
+    price_points:               100
+  },
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Joseph",
+    address_tenant_last_name:   "Crane",
+    price_points:               200
+  },
+  {
+    name:                       "something",
+    phone:                      "is",
+    address_street:             "San Mateo",
+    address_unit:               10,
+    address_zipcode:            95122,
+    address_tenant_first_name:  "Abel",
+    address_tenant_last_name:   "Picchu",
+    price_points:               200    
+  }  
+]
+```
+
+
